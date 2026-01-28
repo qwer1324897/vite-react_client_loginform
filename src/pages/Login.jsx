@@ -20,6 +20,13 @@ export default function Login() {
         loginRequest(payload);
     }
 
+    const snsLogin = (provider)=>{
+        // 스프링부트가 내장한, 구글의 로그인 요청 주소
+        // http://172.30.1.62:9993/oauth2/authorization/google
+        // location.href = `http://172.30.1.62:9993/oauth2/authorization/${provider}`
+        location.href = `http://localhost:9993/oauth2/authorization/${provider}`;
+    }
+
     return (
         <div className={uiStyles.formContainer}>
             <h2 className={uiStyles.formTitle}>로그인</h2>
@@ -33,6 +40,16 @@ export default function Login() {
                 <div className={uiStyles.formGroup}>
                     <button type="button" onClick={login} className={uiStyles.primaryBtn} style={{width: '100%'}}>로그인</button>
                 </div>
+                
+                <div className={uiStyles.formGroup}>
+                    <button type="button" onClick={function(){snsLogin("google")}} className={uiStyles.snsButton} style={{width: '100%'}}>Google</button>
+                </div>                              {/*이렇게 해도 되고 */}
+                <div className={uiStyles.formGroup}>
+                    <button type="button" onClick={()=> {snsLogin("naver")}} className={uiStyles.snsButton} style={{width: '100%'}}>Naver</button>
+                </div>                              {/*이렇게 해도 되고 */}
+                <div className={uiStyles.formGroup}>
+                    <button type="button" onClick={()=> snsLogin("kakao")} className={uiStyles.snsButton} style={{width: '100%'}}>Kakao</button>
+                </div>                              {/*이렇게 해도 되고 */}
             </form>
         </div>
     );

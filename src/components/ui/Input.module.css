@@ -13,6 +13,14 @@
     background-color: #3b70db; /* 마우스 올렸을 때 더 진하게 */
 }
 
+.snsButton {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 10;
+    border: 1px solid #d1d5db;
+    cursor: pointer;
+}
+
 /* 인풋 스타일 */
 .inputStyle {
     padding: 10px 12px;       /* 안쪽 여백 */
